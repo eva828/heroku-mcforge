@@ -75,10 +75,10 @@ else
 fi
 
 echo -n "-----> Installing Minecraft Forge ${minecraft_version}... "
-if [ $(echo $minecraftforge_url | grep -e '404 Not Found') ]; then
-  forgever=`curl -Lso- "http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_${minecraft_version}.html" | grep -oP "(?<=${minecraft_version} \- )[0-9][0-9]\.[0-9][0-9]\.[0-9]\.[0-9][0-9][0-9][0-9]" | sed -z "s/\n/n/" | grep -oP ".+(?=n)"`
-  minecraftforge_url="https://files.minecraftforge.net/maven/net/minecraftforge/forge/${minecraft_version}-${forgever}-${minecraft_version}/forge-${minecraft_version}-${forgever}-${minecraft_version}-installer.jar"
-fi
+# if [ $(echo $minecraftforge_url | grep -e '404 Not Found') ]; then
+forgever=`curl -Lso- "http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_${minecraft_version}.html" | grep -oP "(?<=${minecraft_version} \- )[0-9][0-9]\.[0-9][0-9]\.[0-9]\.[0-9][0-9][0-9][0-9]" | sed -z "s/\n/n/" | grep -oP ".+(?=n)"`
+minecraftforge_url="https://files.minecraftforge.net/maven/net/minecraftforge/forge/${minecraft_version}-${forgever}-${minecraft_version}/forge-${minecraft_version}-${forgever}-${minecraft_version}-installer.jar"
+# fi
 curl -o minecraftforgeinstaller.jar -s -L $minecraftforge_url
 java -jar ./minecraftforgeinstaller.jar nogui --installServer
 rm minecraftforgeinstaller.jar
