@@ -84,7 +84,13 @@ curl -o minecraftforgeinstaller.jar -s -L $minecraftforge_url
 java -jar ./minecraftforgeinstaller.jar nogui --installServer
 rm minecraftforgeinstaller.jar
 rm minecraftforgeinstaller.jar.log
-mv "forge-${minecraft_version}-${forgever}-universal.jar" $BUILD_DIR/minecraft.jar
+if [ -f forge-${minecraft_version}-${forgever}-universal.jar ]; then
+  mv "forge-${minecraft_version}-${forgever}-universal.jar" $BUILD_DIR/minecraft.jar
+else
+  # forge-1.7.10-10.13.4.1614-1.7.10-universal.jar
+  mv "forge-${minecraft_version}-${forgever}-${minecraft_version}-universal.jar" $BUILD_DIR/minecraft.jar
+fi
+
 # mv minecraft.jar $BUILD_DIR/minecraft.jar
 echo "done"
 
