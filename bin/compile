@@ -89,10 +89,10 @@ echo "pwd => $(pwd)"
 rm minecraftforgeinstaller.jar
 rm minecraftforgeinstaller.jar.log
 if [ -f forge-${minecraft_version}-${forgever}-universal.jar ]; then
-  mv "forge-${minecraft_version}-${forgever}-universal.jar" $BUILD_DIR/minecraft.jar
+  mv "forge-${minecraft_version}-${forgever}-universal.jar" minecraft_forge.jar
 else
   # forge-1.7.10-10.13.4.1614-1.7.10-universal.jar
-  mv "forge-${minecraft_version}-${forgever}-${minecraft_version}-universal.jar" $BUILD_DIR/minecraft.jar
+  mv "forge-${minecraft_version}-${forgever}-${minecraft_version}-universal.jar" minecraft_forge.jar
 fi
 
 # mv minecraft.jar $BUILD_DIR/minecraft.jar
@@ -109,6 +109,7 @@ mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/index.rhtml ] && cp $OPT_DIR/index.rhtml $BUILD_DIR
 [ ! -f $BUILD_DIR/libraries ]   && cp -r $(pwd)/libraries $BUILD_DIR
+[ ! -f $BUILD_DIR/minecraft_forge.jar ]   && cp -r $(pwd)/minecraft_forge.jar $BUILD_DIR
 
 chmod +x $BUILD_DIR/bin/minecraft
 chmod +x $BUILD_DIR/bin/sync
