@@ -84,6 +84,7 @@ minecraftforge_url="https://files.minecraftforge.net/maven/net/minecraftforge/fo
 echo "minecraftforge_url : $minecraftforge_url"
 curl -o minecraftforgeinstaller.jar -s -L $minecraftforge_url
 java -jar ./minecraftforgeinstaller.jar nogui --installServer
+echo "ls => $(ls)"
 rm minecraftforgeinstaller.jar
 rm minecraftforgeinstaller.jar.log
 if [ -f forge-${minecraft_version}-${forgever}-universal.jar ]; then
@@ -109,4 +110,4 @@ mkdir -p $BUILD_DIR/bin
 
 chmod +x $BUILD_DIR/bin/minecraft
 chmod +x $BUILD_DIR/bin/sync
-echo "ls => $(ls)"
+
