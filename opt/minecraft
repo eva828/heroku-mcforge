@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 mc_port=25566
 port=${1:-${PORT:-8080}}
