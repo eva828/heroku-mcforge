@@ -110,6 +110,7 @@ mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/index.rhtml ] && cp $OPT_DIR/index.rhtml $BUILD_DIR
 [ ! -f $BUILD_DIR/libraries ]   && cp -r $(pwd)/libraries $BUILD_DIR
 [ ! -f $BUILD_DIR/minecraft_forge.jar ]   && cp -r $(pwd)/minecraft_forge.jar $BUILD_DIR
+[ ! -f $BUILD_DIR/minecraft_server.${minecraft_version}.jar ]   && cp -r $(pwd)/minecraft_server.${minecraft_version}.jar $BUILD_DIR
 
 chmod +x $BUILD_DIR/bin/minecraft
 chmod +x $BUILD_DIR/bin/sync
